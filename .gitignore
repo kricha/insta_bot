@@ -62,5 +62,6 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 .idea/
-/var/cookies/*
+/var/*
 !var/cookies/.gitkeep
+!var/screenshots/.gitkeep
