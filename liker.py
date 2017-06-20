@@ -50,7 +50,7 @@ class browser:
 
     def auth(self, login, password):
         br = self.browser
-        br.get("https://www.instagram.com/")
+        self.get("https://www.instagram.com/accounts/login/")
         time.sleep(2)
         try:
             self.log('try to auth with cookies')
@@ -60,9 +60,6 @@ class browser:
 
         except:
             self.log('regular login')
-            login_link = br.find_element_by_link_text('Log in')
-            login_link.click()
-            time.sleep(2)
             login_field = br.find_element_by_name("username")
             login_field.clear()
             self.log(u'Login fill')
@@ -79,7 +76,7 @@ class browser:
             self.log('auth complete')
         br.refresh()
 
-    def getUrl(self, url):
+    def get(self, url):
         self.browser.get(url)
         self.log(u'Open ' + self.browser.current_url)
 
