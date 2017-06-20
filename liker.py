@@ -14,28 +14,38 @@ args = parser.parse_args()
 debug = args.debug
 chrome = args.chrome
 
-class browser:
+
+class Browser:
     """docstring for browser."""
 
-    def __init__(self, debug = False, chrome = False ):
+    def __init__(self, debug=False, chrome=False):
         if chrome:
             self.chrome = chrome
             self.browser = webdriver.Chrome()
         else:
+            headers = {
+                'Accept': '*/*',
+                'Accept-Language': 'en-US,en;q=0.8',
+                'Cache-Control': 'max-age=0',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
+            }
+            for key, value in headers.items():
+                webdriver.DesiredCapabilities.PHANTOMJS['phantomjs.page.customHeaders.{}'.format(key)] = value
+            webdriver.DesiredCapabilities.PHANTOMJS['phantomjs.page.settings.userAgent'] = headers.get('User-Agent')
+
             self.browser = webdriver.PhantomJS()
             self.browser.command_executor._commands['executePhantomScript'] = ('POST', '/session/$sessionId/phantom/execute')
-            self.resourceRequestedLogic()
+            self.resource_requested_logic()
         self.mouse = ActionChains(self.browser)
         self.debug = debug
 
-
-    def clearDriverCache(self):
+    def clear_driver_cache(self):
         self.browser.execute('executePhantomScript', {'script': '''
             var page = this;
             page.clearMemoryCache();
         ''', 'args': []})
 
-    def resourceRequestedLogic(self):
+    def resource_requested_logic(self):
         self.browser.execute('executePhantomScript', {'script': '''
             var page = this;
             page.onResourceRequested = function(request, networkRequest) {
@@ -51,6 +61,7 @@ class browser:
     def auth(self, login, password):
         br = self.browser
         self.get("https://www.instagram.com/accounts/login/")
+        self.browser.save_screenshot('var/screenshots/login.png')
         time.sleep(2)
         try:
             self.log('try to auth with cookies')
@@ -80,20 +91,27 @@ class browser:
         self.browser.get(url)
         self.log(u'Open ' + self.browser.current_url)
 
-    def closeAll(self):
+    def close_all(self):
+        self.browser.save_screenshot('var/screenshots/close_all.png')
         self.browser.close()
         self.browser.quit()
         self.log(u'Browser process was ended')
         self.log(u'')
 
-    def scrollToLastUnliked(self):
-        while not len(self.browser.find_elements_by_css_selector('.coreSpriteLikeHeartFull')):
+    def is_last_post_in_feed_not_liked(self):
+        try:
+            self.browser.find_element_by_css_selector('article:last-child .coreSpriteLikeHeartOpen');
+            return True
+        except:
+            return False
+
+    def scroll_feed_to_last_unliked(self):
+        while self.is_last_post_in_feed_not_liked():
             self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             time.sleep(1)
-            # pprint.pprint(len(self.browser.find_elements_by_css_selector('.coreSpriteLikeHeartFull')))
             self.log('scroll down')
 
-    def likeFoundPosts(self):
+    def like_found_posts(self):
         br = self.browser
         articles = br.find_elements_by_tag_name('article')
         for post in articles:
@@ -115,11 +133,10 @@ class browser:
 login = os.environ.get('insta_login')
 password = os.environ.get('insta_password')
 
-
-br = browser(debug, chrome)
+br = Browser(debug, chrome)
 try:
     br.auth(login, password)
-    br.scrollToLastUnliked()
-    br.likeFoundPosts()
+    br.scroll_feed_to_last_unliked()
+    br.like_found_posts()
 finally:
-    br.closeAll()
+    br.close_all()
