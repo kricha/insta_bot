@@ -20,5 +20,5 @@ try:
     br.scroll_feed_to_last_not_liked()
     br.like_found_posts()
 finally:
-    print(br.get_summury())
+    print(br.get_summary())
     br.close_all()
