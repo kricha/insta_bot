@@ -1,1 +1,1 @@
-selenium
+insta_browser

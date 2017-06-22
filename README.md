@@ -11,6 +11,9 @@ env/bin/pip install -r requirements.txt
 
 Download and place binary from archive to bin folder - http://phantomjs.org/download.html
 
+## Upgrade
+After each `git pull` run command to update packages from requirements:   
+`env/bin/pip install -r requirements.txt --upgrade`
 
 ## Usage
 run liker
