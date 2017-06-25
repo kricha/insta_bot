@@ -22,7 +22,7 @@ count = args.count
 login = os.environ.get('insta_login')
 password = os.environ.get('insta_password')
 
-exclude = open('{}/exclude_accounts.txt'.format(SCRIPT_PATH)).read().split(',')
+exclude = open('{}/var/exclude_accounts.txt'.format(SCRIPT_PATH)).read().split(',')
 
 br = browser.Browser(debug, chrome, COOKIE_PATH, SCREEN_SHOT_PATH, LOGGER_FILE, exclude)
 try:
