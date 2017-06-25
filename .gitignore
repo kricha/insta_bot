@@ -66,3 +66,4 @@ pip-selfcheck.json
 !var/cookie/.gitkeep
 !var/screenshot/.gitkeep
 !var/log/.gitkeep
+!var/exclude_accounts.txt
