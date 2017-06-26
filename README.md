@@ -31,7 +31,7 @@ Like posts until last liked.
 insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_username.py
 ```
 `--username wakecupbar` - indication what username profile to like **(required)**  
-`--debug`  - use for getting debug information in console
+`--debug`  - use for getting debug information in console  
 `--chrome` - for using Chrome webdriver instead of PhantomJS  
 `--count 10` - for liking just 10 posts from profile  
 
