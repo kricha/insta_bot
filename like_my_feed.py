@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import argparse
 import os
-import pprint
 from insta_browser import browser
 
 SCRIPT_PATH = os.path.dirname(__file__)
