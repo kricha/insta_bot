@@ -36,3 +36,14 @@ insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_
 `--count 10` - for liking just 10 posts from profile  
 
 Like posts from user profile.
+
+#### Location liker 📍
+```
+insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_location.py
+```
+`--location 212898659/kyiv-ukraine/` - indication what username profile to like **(required)**  
+`--debug`  - use for getting debug information in console  
+`--chrome` - for using Chrome webdriver instead of PhantomJS  
+`--count 10` - for liking just 10 posts from profile  
+
+Like posts from location.
