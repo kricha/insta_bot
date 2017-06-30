@@ -3,7 +3,7 @@ import argparse
 import os
 from insta_browser import browser
 
-SCRIPT_PATH = os.path.dirname(__file__)
+SCRIPT_PATH = os.path.dirname(os.path.abspath(__file__))
 COOKIE_PATH = '{}/var/cookie'.format(SCRIPT_PATH)
 SCREEN_SHOT_PATH = '{}/var/screenshot'.format(SCRIPT_PATH)
 LOGGER_FILE = '{}/var/log/insta_browser.txt'.format(SCRIPT_PATH)
