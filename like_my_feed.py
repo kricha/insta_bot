@@ -26,11 +26,7 @@ exclude = open('{}/var/exclude_accounts.txt'.format(SCRIPT_PATH)).read().split('
 br = browser.Browser(debug, chrome, COOKIE_PATH, SCREEN_SHOT_PATH, LOGGER_FILE, exclude)
 try:
     br.auth(login, password)
-    if count:
-        br.scroll_feed_by_posts_count(count)
-    else:
-        br.scroll_feed_to_last_not_liked_posts()
-    br.like_found_posts()
+    br.process_feed(count)
 finally:
     print(br.get_summary())
     br.close_all()

@@ -1,3 +1,6 @@
+# Instagram bot 😎
+![phantom](https://user-images.githubusercontent.com/4619899/27839319-0384f6a2-60f9-11e7-84f8-98b078e58855.gif)
+
 ## Requirements
 * python 3
 * virtualenv
@@ -47,3 +50,14 @@ insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_
 `--count 10` - for liking just 10 posts from profile  
 
 Like posts from location.
+
+#### Tag liker #️⃣
+```
+insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_tag.py
+```
+`--tag python` - indication what tag to like **(required)**  
+`--debug`  - use for getting debug information in console  
+`--chrome` - for using Chrome webdriver instead of PhantomJS  
+`--count 10` - for liking just 10 posts from profile  
+
+Like posts from tag.

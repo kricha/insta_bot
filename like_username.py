@@ -26,7 +26,7 @@ password = os.environ.get('insta_password')
 br = browser.Browser(debug, chrome, COOKIE_PATH, SCREEN_SHOT_PATH, LOGGER_FILE)
 try:
     br.auth(login, password)
-    br.process_user(username)
+    br.process_user(username, count)
 finally:
     print(br.get_summary())
     br.close_all()
