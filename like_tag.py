@@ -27,6 +27,6 @@ br = browser.Browser(debug, chrome, COOKIE_PATH, SCREEN_SHOT_PATH, LOGGER_FILE)
 try:
     br.auth(login, password)
     br.process_tag(tag, count)
-finally:
     print(br.get_summary())
+finally:
     br.close_all()
