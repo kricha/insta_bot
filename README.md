@@ -1,6 +1,9 @@
 # Instagram bot 😎
 ![phantom](https://user-images.githubusercontent.com/4619899/27839319-0384f6a2-60f9-11e7-84f8-98b078e58855.gif)
 
+## NEED TO KNOW:
+Update requirements for using insta_browser package version 0.7.2
+
 ## Requirements
 * python 3
 * virtualenv
