@@ -2,10 +2,10 @@
 ![phantom](https://user-images.githubusercontent.com/4619899/27839319-0384f6a2-60f9-11e7-84f8-98b078e58855.gif)
 
 ## NEED TO KNOW:
-Update requirements for using insta_browser package version 0.7.2
+Always use latest version of **[insta_browser](https://github.com/aLkRicha/insta_browser)** [![PyPI](https://img.shields.io/pypi/v/insta_browser.svg)](https://pypi.python.org/pypi/insta_browser) package
 
 ## Requirements
-* python 3
+* python 2.7/3
 * virtualenv
 * chrome or phantomJS web driver
 
