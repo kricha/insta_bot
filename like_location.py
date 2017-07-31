@@ -2,11 +2,7 @@
 import argparse
 import os
 from insta_browser import browser
-
-SCRIPT_PATH = os.path.dirname(os.path.abspath(__file__))
-COOKIE_PATH = '{}/var/cookie'.format(SCRIPT_PATH)
-SCREEN_SHOT_PATH = '{}/var/screenshot'.format(SCRIPT_PATH)
-LOGGER_FILE = '{}/var/log/insta_browser.txt'.format(SCRIPT_PATH)
+import configure
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--debug', help='enable debug mode', action="store_true")
@@ -19,11 +15,17 @@ chrome = args.chrome
 count = args.count
 location = args.location
 
-
 login = os.environ.get('insta_login')
 password = os.environ.get('insta_password')
 
-br = browser.Browser(debug, chrome, COOKIE_PATH, SCREEN_SHOT_PATH, LOGGER_FILE)
+br = browser.Browser(
+    debug=debug,
+    chrome=chrome,
+    cookie_path=configure.COOKIE_PATH,
+    log_path=configure.LOG_PATH,
+    db_path=configure.DB_PATH,
+    exclude=configure.exclude
+)
 try:
     br.auth(login, password)
     br.process_location(location, count)
