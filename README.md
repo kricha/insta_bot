@@ -7,15 +7,13 @@ Always use latest version of **[insta_browser](https://github.com/aLkRicha/insta
 ## Requirements
 * python 2.7/3
 * virtualenv
-* chrome or phantomJS web driver
+* ChromeDriver (‼️) intsa_browser package removed phantomjs support 🆘
 
 ## Installation:
 ```
 virtualenv env -p $(which python3) --no-wheel --no-setuptools
 env/bin/pip install -r requirements.txt
 ```
-
-Download and place binary from archive to bin folder - http://phantomjs.org/download.html
 
 ## Upgrade
 After each `git pull` run command to update packages from requirements:   
@@ -26,8 +24,7 @@ After each `git pull` run command to update packages from requirements:
 ```
 insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_my_feed.py
 ```
-`--debug`  - use for getting debug information in console  
-`--chrome` - for using Chrome webdriver instead of PhantomJS  
+`--debug`  - use for getting debug information in console
 `--count 10` - for liking just 10 posts from feed  
 
 Like posts until last liked.
@@ -37,8 +34,7 @@ Like posts until last liked.
 insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_username.py
 ```
 `--username wakecupbar` - indication what username profile to like **(required)**  
-`--debug`  - use for getting debug information in console  
-`--chrome` - for using Chrome webdriver instead of PhantomJS  
+`--debug`  - use for getting debug information in console
 `--count 10` - for liking just 10 posts from profile  
 
 Like posts from user profile.
@@ -48,8 +44,7 @@ Like posts from user profile.
 insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_location.py
 ```
 `--location 212898659/kyiv-ukraine/` - indication what username profile to like **(required)**  
-`--debug`  - use for getting debug information in console  
-`--chrome` - for using Chrome webdriver instead of PhantomJS  
+`--debug`  - use for getting debug information in console
 `--count 10` - for liking just 10 posts from profile  
 
 Like posts from location.
@@ -59,8 +54,7 @@ Like posts from location.
 insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_tag.py
 ```
 `--tag python` - indication what tag to like **(required)**  
-`--debug`  - use for getting debug information in console  
-`--chrome` - for using Chrome webdriver instead of PhantomJS  
+`--debug`  - use for getting debug information in console
 `--count 10` - for liking just 10 posts from profile  
 
 Like posts from tag.
