@@ -39,13 +39,14 @@ insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_
 
 Like posts from user profile.
 
-#### Location liker 📍
+#### Location liker with auto-following  📍
 ```
-insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_location.py
+insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_location.py --auto_follow
 ```
 `--location 212898659/kyiv-ukraine/` - indication what username profile to like **(required)**  
 `--debug`  - use for getting debug information in console
 `--count 10` - for liking just 10 posts from profile  
+`--auto_follow` - enable auto-following function  
 
 Like posts from location.
 
@@ -56,5 +57,6 @@ insta_login=yourInstaLogin insta_password=yourInstaPassword env/bin/python like_
 `--tag python` - indication what tag to like **(required)**  
 `--debug`  - use for getting debug information in console
 `--count 10` - for liking just 10 posts from profile  
+`--auto_follow` - enable auto-following function  
 
 Like posts from tag.
