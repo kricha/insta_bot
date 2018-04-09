@@ -12,7 +12,8 @@ def callback(text):
     print(text)
 
 
-im = InstaMeter(username=username, callback=callback)
+# im = InstaMeter(username=username, callback=callback) # Variant with callback
+im = InstaMeter(username=username)
 res = im.analyze_profile()
 im.print_account_statistic()
 im.print_top_liked()
